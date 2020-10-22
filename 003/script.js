@@ -4,7 +4,7 @@ const wendelAge = 14;
 if (wendelAge > 18) {
     alert('Wendel PODE beber água que passarinho não bebe');
 } else {
-    alert('Fica esperto, muleke!');
+    alert('Wendell bebeu agua que passrinho não bebe, e agora?');
 }
 
 
@@ -17,4 +17,8 @@ const payments = 10;
 // - You can't buy this TV. Payment price: R$ .....
 // - You can do it, man!
 
-
+if (tvPrice / payments > monthlyBudget) {
+    alert(`You can't buy this TV. Payment price: R$${tvPrice / payments}`)
+} else {
+    alert('You can do it, man!')
+}
