@@ -9,7 +9,7 @@ if (wendelAge > 18) {
 
 
 // Exercises
-const tvPrice = 5340;
+const tvPrice = 5001;
 const monthlyBudget = 500;
 const payments = 10;
 
@@ -17,8 +17,10 @@ const payments = 10;
 // - You can't buy this TV. Payment price: R$ .....
 // - You can do it, man!
 
-if (tvPrice / payments > monthlyBudget) {
-    alert(`You can't buy this TV. Payment price: R$${tvPrice / payments}`)
+const paymentPrice = tvPrice / payments;
+
+if (paymentPrice > monthlyBudget) {
+    alert(`You can't buy this TV. Payment price: R$${paymentPrice}`)
 } else {
     alert('You can do it, man!')
 }
