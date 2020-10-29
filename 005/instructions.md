@@ -43,9 +43,8 @@ Pontos:
 4 - -10
 5 - 30
 
-
 < 0 - Bichona
-0 ~ 30 - Hmmmmmm
-30 ~ 60 - Homem
-60 ~ 100 - Macho
-> 100 - Rambo!
+0 a 10 - Hmmmmmm
+10 a 20 - Homem
+20 a 30 - Macho
+>= 30 - Rambo!
