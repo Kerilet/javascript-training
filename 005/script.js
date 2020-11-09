@@ -30,11 +30,87 @@ const fourthQuestion = parseFloat(prompt(`Qual sua relação com o espelho?
 4 - Admira-se com diferentes camisas e penteados
 5 - Não usa`));
 
-const firstAnwser = 10;
+const firstAnwser = 20;
 const secondAnwser = 10;
-const thirdAnwser = 10;
-const fourthAnwser = 10;
+const thirdAnwser = 0;
+const fourthAnwser = -10;
+const fifthAnswer = 30;
 
+let firstPoints = null;
+if (firstQuestion === 1) {
+    firstPoints = firstAnwser;
+} else if (firstQuestion === 2) {
+    firstPoints = secondAnwser;
+} else if (firstQuestion === 3) {
+    firstPoints = thirdAnwser;
+} else if (firstQuestion === 4) {
+    firstPoints = fourthAnwser;
+} else {
+    firstPoints = fifthAnswer;
+}
+
+let secondPoints = null;
+if (secondQuestion === 1) {
+    secondPoints = firstAnwser;
+} else if (secondQuestion === 2) {
+    secondPoints = secondAnwser;
+} else if (secondQuestion === 3) {
+    secondPoints = thirdAnwser;
+} else if (secondQuestion === 4) {
+    secondPoints = fourthAnwser;
+} else {
+    secondPoints = fifthAnswer;
+}
+
+let thirdPoints = null;
+if (thirdQuestion === 1) {
+    thirdPoints = firstAnwser;
+} else if (thirdQuestion === 2) {
+    thirdPoints = secondAnwser;
+} else if (thirdQuestion === 3) {
+    thirdPoints = thirdAnwser;
+} else if (thirdQuestion === 4) {
+    thirdPoints = fourthAnwser;
+} else {
+    thirdPoints = fifthAnswer;
+}
+
+let fourthPoints = null;
+if (fourthQuestion === 1) {
+    fourthPoints = firstAnwser;
+} else if (fourthQuestion === 2) {
+    fourthPoints = secondAnwser;
+} else if (fourthQuestion === 3) {
+    fourthPoints = thirdAnwser;
+} else if (fourthQuestion === 4) {
+    fourthPoints = fourthAnwser;
+} else {
+    fourthPoints = fifthAnswer;
+}
+
+
+const total = firstPoints + secondPoints + thirdPoints + fourthPoints;
+const average = total / 4;
+
+console.log(total, average);
+
+let adv;
+
+if (average < 0) {
+    adv = `Bichona`;
+} else if (average >= 0 && average < 10) {
+    adv = `Hmmmmmm`;
+} else if (average >= 10 && average < 20) {
+    adv = `Homem`;
+} else if (average >= 20 && average < 30) {
+    adv = `Macho`;
+} else {
+    adv = `Rambo!`;
+}
+
+alert(`A média do seu teste foi ${average}, portanto você é ${adv}`);
+
+/*
 if (firstQuestion === 1) {
     firstAnwser === 20
 } else {
@@ -111,21 +187,21 @@ var results = 10;
 const finalAnwser = firstAnwser + secondAnwser + thirdAnwser + fourthAnwser / 4;
 
 if (finalAnwser < 0) {
-    results === Bichona
+    results === 'Bichona';
 } else {
     if (finalAnwser > 10) {
-        results === Hmmmmmm
+        results === 'Hmmmmmm';
     } else {
         if (finalAnwser > 20) {
-            results === Homem
+            results === 'Homem';
         } else {
             if (finalAnwser > 30) {
-                results === Macho
+                results === 'Macho';
             } else {
-                results === Rambo
+                results === 'Rambo';
             }
         }
     }
 }
 
-const anwserReveal = confirm(`Sua média de pontos foi ${finalAnwser}, portanto você é ${results}`);
+const anwserReveal = confirm(`Sua média de pontos foi ${finalAnwser}, portanto você é ${results}`);*/
