@@ -2,12 +2,12 @@
 I, Wendell Navarro, will now learn javascript
 
 
-- Overview
-- Syntax
-- Variables
-- Operators
-- If-else
-- While/loop
+- Overview `done`
+- Syntax `done`
+- Variables `done`
+- Operators `done`
+- If-else `done`
+- While/loop 
 - For/loop
 - Functions
 - Loop control
