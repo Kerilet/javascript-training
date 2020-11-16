@@ -1,14 +1,9 @@
 const num = parseInt(prompt('Please, enter a prime number'));
 let isPrime = true;
-let index = 2;
 
-while (isPrime && index < num) {
-    if (num % index === 0) isPrime = false;
-    index = index + 1;
+
+for (let i = 2; i < num; i++) {
+    if (num % i === 0) isPrime = false;
 }
 
-if (isPrime) {
-    alert(`The number ${num} is prime`);
-} else {
-    alert(`The number ${num} is not prime`);
-}
+alert(`The number ${num} ${ isPrime ? ' is' : ' is not' } prime`);
