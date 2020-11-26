@@ -1,19 +1,20 @@
-function primeQuestion() {
-    const num = parseInt(prompt('Please, enter a prime number'));
-    let isPrime = true;
-    const info = primeCheck(num, isPrime)
+function numbers() {
+    const weight = parseFloat(prompt(`How much do you weight (in kilograms)?`));
+    const height = parseFloat(prompt(`How tall are you (in meters)?`));
+    const doubleHeight = height * height;
+    const info = IMCCheck(weight, height, doubleHeight);
 }
 
-function primeCheck(num, isPrime) {
-    for (let index = num; index >= 1; index--) {
-        if (index % 2 === 0 && index > 2 || index % 3 === 0 && index > 3 || index % 5 === 0 && index > 5) {
-            for (let i = 2; i < num; i++) {
-                if (num % i === 0) isPrime = false;
-            }
-            document.body.innerHTML += `${index} is not prime!<br>`;
-
-        } else {
-            document.body.innerHTML += `${index.toString().padStart(3,'0')} is prime!<br>`;
-        }
+function IMCCheck(weight, height, doubleHeight) {
+    if (weight / doubleHeight <= 18.5) {
+        document.body.innerHTML += `Your CMI is ${weight / doubleHeight}, so you are in underweight conditions!<br>`;
+    } else if (weight / doubleHeight <= 24.9) {
+        document.body.innerHTML += `Your CMI is ${weight / doubleHeight}, so you are in regular conditions!<br>`
+    } else if (weight / doubleHeight <= 29.9) {
+        document.body.innerHTML += `Your CMI is ${weight / doubleHeight}, so you are in overweight conditions!<br>`;
+    } else if (weight / doubleHeight <= 39.9) {
+        document.body.innerHTML += `Your CMI is ${weight / doubleHeight}, so you are in obese conditions!<br>`;
+    } else if (weight / doubleHeight > 40) {
+        document.body.innerHTML += `Your CMI is ${weight / doubleHeight}, so you are in morbidly obese conditions!<br>`;
     }
 }
