@@ -7,15 +7,15 @@ I, Wendell Navarro, will now learn javascript
 - Variables `done`
 - Operators `done`
 - If-else `done`
-- While/loop 
-- For/loop
-- Functions
-- Loop control
+- While/loop `done`
+- For/loop`done`
+- Functions `done`
 - Switch-case
-- Numbers/Math
-- Strings
+- Numbers/Math 
+- Strings `done`
 - Arrays
 - Objects
 - Date
 - Regex
 - Class (OOP)
+- DOM
