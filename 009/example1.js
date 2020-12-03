@@ -1,8 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 function hours() {
-    const hours = parseFloat(prompt(`How many hours to you want to convert into seconds?`))
-    const conversion = hoursToSeconds(hours)
+    const hoursCheck = parseFloat(prompt('How many hours to you want to convert into seconds?'));
+    hoursToSeconds(hoursCheck);
 }
 
-function hoursToSeconds(hours) {
-    document.body.innerHTML += `${hours} hour(s) will be converted into ${hours * 3600} seconds! Have a nice day/evening/night!<br>`;
+function hoursToSeconds(hoursCheck) {
+    document.body.innerHTML += `${hoursCheck} hour(s) will be converted into ${hoursCheck * 3600} seconds! Have a nice day/evening/night!<br>`;
 }

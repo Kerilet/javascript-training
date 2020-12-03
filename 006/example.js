@@ -4,4 +4,4 @@ while (totalMoney < 500) {
     totalMoney = totalMoney + number;
 }
 
-alert(`Thanks for your money, sucker!`)
+alert('Thanks for your money, sucker!');

@@ -1,8 +1,8 @@
-const baseNumber = parseInt(prompt(`Escolha um número para esta tabuada`));
-const maxNumber = parseInt(prompt(`Escolha um número menor que 10 para o limite da tabuada`));
+const baseNumber = parseInt(prompt('Escolha um número para esta tabuada'));
+const maxNumber = parseInt(prompt('Escolha um número menor que 10 para o limite da tabuada'));
 
 if (maxNumber > 10) {
-    alert(`Erro: O número máximo que você escolheu é maior que 10. Tente novamente.`);
+    alert('Erro: O número máximo que você escolheu é maior que 10. Tente novamente.');
 } else {
     for (let index = 1; index < maxNumber; index++) {
         document.write(`${baseNumber} * ${index} = ${baseNumber * index}<br>`);

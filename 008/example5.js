@@ -1,8 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 function dell() {
-    const num = parseFloat(prompt(`Please enter a number`));
-    const symbol = prompt(`Please write down a math operation`);
+    const num = parseFloat(prompt('Please enter a number'));
+    const symbol = prompt('Please write down a math operation');
     const num2 = parseFloat(prompt('Please enter another number'));
-    const text = jesse(num, symbol, num2);
+    jesse(num, symbol, num2);
 }
 
 function jesse(jnum, jsymbol, jnum2) {

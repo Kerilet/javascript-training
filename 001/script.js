@@ -1,6 +1,6 @@
 var mensagem = 'Eu andei dando uma pesquisada em JavaScript';
 var num = 1;
-var num2 = "1";
+var num2 = '1';
 
 // alert(mensagem);
 
@@ -16,5 +16,5 @@ function num() {
 }
 
 function num() {
-    var num2 = "1";
+    var num2 = '1';
 }

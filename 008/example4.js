@@ -6,11 +6,12 @@ function isPositive(num) {
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 function numQuestion() {
-    const num = parseFloat(prompt(`Please enter a number`));
+    const num = parseFloat(prompt('Please enter a number'));
     if (isPositive(num)) {
         document.body.innerHTML += `<br>The number ${num} is positive`;
     } else {
         document.body.innerHTML += `<br>The number ${num} is negative`;
     }
-};
+}

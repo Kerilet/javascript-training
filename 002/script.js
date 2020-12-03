@@ -16,7 +16,7 @@ const percent = (30 * 23) / 100;
 
 // Strings
 const firstname = 'Wendel'; // recommended
-const surname = "Navarro"; // forget it
+const surname = 'Navarro'; // forget it
 const fullname = `${firstname} de ${surname} da Silva`; // recommended
 const letter = 'A';
 const number = '1';

@@ -1,8 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 function stripedInfo() {
-    let num = parseInt(prompt(`Please enter the number of lines you'd like`));
-    let col1 = prompt(`Please enter the first color`)
-    let col2 = prompt(`Please enter the second color`)
-    const info = stripedFun(num, col1, col2);
+    let num = parseInt(prompt('Please enter the number of lines you\'d like'));
+    let col1 = prompt('Please enter the first color');
+    let col2 = prompt('Please enter the second color');
+    stripedFun(num, col1, col2);
 }
 
 function stripedFun(num, col1, col2) {

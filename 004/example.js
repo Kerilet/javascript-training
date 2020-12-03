@@ -12,8 +12,8 @@ const payments = prompt('How many payments?');
 const paymentPrice = tvPrice / payments;
 
 if (paymentPrice > monthlyBudget) {
-    alert(`${name} can't buy this TV. Payment price: R$${paymentPrice}`)
+    alert(`${name} can't buy this TV. Payment price: R$${paymentPrice}`);
 } else {
-    alert(`${name}, you can do it, man!`)
+    alert(`${name}, you can do it, man!`);
 }
-dasdas
+dasdas;

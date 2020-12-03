@@ -97,15 +97,15 @@ console.log(total, average);
 let adv;
 
 if (average < 0) {
-    adv = `Bichona`;
+    adv = 'Bichona';
 } else if (average >= 0 && average < 10) {
-    adv = `Hmmmmmm`;
+    adv = 'Hmmmmmm';
 } else if (average >= 10 && average < 20) {
-    adv = `Homem`;
+    adv = 'Homem';
 } else if (average >= 20 && average < 30) {
-    adv = `Macho`;
+    adv = 'Macho';
 } else {
-    adv = `Rambo!`;
+    adv = 'Rambo!';
 }
 
 alert(`A média do seu teste foi ${average}, portanto você é ${adv}`);

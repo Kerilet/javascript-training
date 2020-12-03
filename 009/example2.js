@@ -1,19 +1,21 @@
+// eslint-disable-next-line no-unused-vars
 function primeQuestion() {
-    const num = parseInt(prompt('Please, enter a prime number'));
-    let isPrime = true;
-    const info = primeCheck(num, isPrime)
+    const total = parseInt(prompt('Please, enter a number'));
+    primeCheck(total);
 }
 
-function primeCheck(num, isPrime) {
-    for (let index = num; index >= 1; index--) {
-        if (index % 2 === 0 && index > 2 || index % 3 === 0 && index > 3 || index % 5 === 0 && index > 5) {
-            for (let i = 2; i < num; i++) {
-                if (num % i === 0) isPrime = false;
-            }
-            document.body.innerHTML += `${index} is not prime!<br>`;
+function primeCheck(total) {
+    for (let index = 1; index <= total; index++) {
+        document.body.innerHTML += isPrime(index) ? `${index} is prime! <br>` : `${index} is not prime <br>`;
+    }
+}
 
-        } else {
-            document.body.innerHTML += `${index.toString().padStart(3,'0')} is prime!<br>`;
+function isPrime(total) {
+    if (total === 1) return false;
+    for (let index = 2; index < total; index++) {
+        if (total % index === 0) {
+            return false;
         }
     }
+    return true;
 }

@@ -20,7 +20,7 @@ const payments = 10;
 const paymentPrice = tvPrice / payments;
 
 if (paymentPrice > monthlyBudget) {
-    alert(`You can't buy this TV. Payment price: R$${paymentPrice}`)
+    alert(`You can't buy this TV. Payment price: R$${paymentPrice}`);
 } else {
-    alert('You can do it, man!')
+    alert('You can do it, man!');
 }
