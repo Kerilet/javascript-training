@@ -19,3 +19,7 @@ I, Wendell Navarro, will now learn javascript
 - Regex
 - Class (OOP)
 - DOM
+- Form validation
+- Callback functions
+- AJAX
+- Promises
