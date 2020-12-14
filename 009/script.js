@@ -86,6 +86,20 @@ function testOne(inputId) {
 }
 
 function testTwo(text) {
-    const text2 = text.replace(/de/g, 'du');
+    const text2 = text.replace(/de/gi, 'du');
     document.body.innerHTML += `${text2}<br>`;
+}
+
+// eslint-disable-next-line no-unused-vars
+function humanFn(inputId) {
+    const text = document.getElementById(inputId).value;
+    document.body.innerHTML += `<div>${toHumanCase(text)}</div>`;
+}
+
+function toHumanCase(str) {
+    const humanizes = str.split(' ');
+    for (let i = 0; i < humanizes.length; i++) {
+        humanizes[i] = humanizes[i][0].toUpperCase() + humanizes[i].substr(1, humanizes[i].length).toLowerCase();
+    }
+    return humanizes.join(' ');
 }

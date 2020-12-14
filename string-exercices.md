@@ -18,3 +18,9 @@ Status: Done
 
 7 - Peça o nome completo e converta em Human Case MM
 Status: Unfinished
+
+/*
+O -> UpperCase
+locate('')
+${locate + 1} -> UpperCase
+*/
