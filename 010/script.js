@@ -1,20 +1,27 @@
-function nameCheck() {
-    const nameQuantity = parseInt(prompt('How many names do you want to write down?'));
-    nameWriting(nameQuantity);
+const namelist = [];
+
+function deleteName(index) {
+    namelist.splice(index, 1);
+    writeNames();
 }
 
-function nameWriting(nameQuantity) {
-    const namelist = [];
-    for (let index = 0; index < nameQuantity; index++) {
-        if (index < nameQuantity) {
-            const name = prompt('Please enter a name');
-            namelist.push(`${name}<br>`);
-        }
-        document.body.innerHTML += `${namelist}`;
-
-    }
+function deleteAllNames() {
+    namelist.splice(0, namelist.length);
+    writeNames();
 }
 
-nameCheck();
+function addName() {
+    const name = document.getElementById('inputText').value;
+    namelist.push(`<li class="list-group-item">${name}</li>`);
+    writeNames();
+    document.getElementById('inputText').value = '';
+}
 
-// Crie uma função que pergunte ao usuário a quantidade de amigos e em seguida, peça o nome de cada e escreva na tela
+function writeNames() {
+    document.getElementById('items').innerHTML = namelist.join('');
+}
+
+
+// nameCheck();
+
+// escreva cada um deles na forma de botão
