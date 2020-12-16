@@ -47,5 +47,5 @@ function writeInfo() {
 }
 
 /* ideia = escrever uma "li" dentro de uma "div" com IDs depedentes de sua classe ("id = number" pra numeros e "id = name" pra nomes),
- dessa forma podemos deletar as divs baseadas em seus IDs
+ dessa forma podemos deletar as divs baseadas em seus IDs enquanto fazemos a função "delete all items" deletar todas as divs
 */
