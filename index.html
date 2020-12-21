@@ -12,15 +12,14 @@
     <div class="container">
         <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" id="pokeNumber" placeholder="Number" />
-            <button class="btn btn-primary" onclick="addNumber()">Add</button>
             <input type="text" class="form-control" id="pokeName" placeholder="Name" />
-            <button class="btn btn-primary" onclick="addName('pokeName')">Add</button>
+            <button class="btn btn-primary" onclick="addPokemon()">Add Pokémon</button>
         </div>
 
         <ul id="items" class="list-group"></ul>
         <div class="input-group input-group-sm mb-3">
             <button class="btn btn-danger" onclick="deleteAllNames()">Delete all items</button>
-            <button class="btn btn-danger" id="numberDeletion" onclick="deleteNumber(numberDeletion)">Delete number</button>
+            <button class="btn btn-danger" id="numberDeletion" onclick="deleteNumber()">Delete number</button>
         </div>
 
     </div>
