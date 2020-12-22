@@ -1,7 +1,5 @@
 const infoList = [];
 
-
-
 // eslint-disable-next-line no-unused-vars
 function addPokemon() {
     const name = document.getElementById('pokeName').value;
@@ -18,9 +16,11 @@ function addPokemon() {
 }
 
 function writeInfo() {
+    infoList.sort();
     document.getElementById('items').innerHTML = infoList.join('');
 }
 
+// eslint-disable-next-line no-unused-vars
 function deleteInfo() {
     if (infoList.length < -1) {
         alert('There is nothing to delete!');
@@ -43,25 +43,11 @@ function deleteNumber() {
 }
 
 /*
-Organizar a lista por ordem alfabética (Hard);
-Proibir campos vazios (Done); 
-Limitar os campos para aceitar apenas Pokémon existentes (Done); 
-Fazer com que o "delete all items" realmente funcione (Done);
+Fazer um search, que vá buscando o mais proximo do que foi digitado no "search";
+dica: filter;
+-------------------------
 
-------------
-
-FUTURO: Implementar um search e colorir a div correspondente ao seach; limitar o search pra Pokémon já existentes na lista; Fazer o search aceitar tanto números quanto números;
-
-1º Forma - Variável
-
-antes do "for" = "let"
-durante o "for" = mudar o valor do "let" se o "splice" ocorreu
-depois do "for" = verificar o valor do "let", se mudou = nada
-
-2º Forma - Length Check
-
-antes do "for" = infoList.length
-depois do "for" = se o "infoList.length" for menor do que antes = nada; se continuar do mesmo tamanho = alert
-
+infoList - alterável
+nova array - contém todos os matches da search, será alterada conforme a infoList, não alterável, <= infoList;
 
 */
