@@ -8,7 +8,7 @@ function addPokemon() {
     if (num > 898 || name == '' || num == '') {
         alert('Please enter valid information!');
     } else {
-        infoList.push(`<div id="name"><li class="list-group-item">${fancyNum} - ${name}</li></div>`);
+        infoList.push(`<li class="list-group-item"><div id="allInfo">${fancyNum} - ${name}</div></li>`);
         writeInfo();
         document.getElementById('pokeNumber').value = '';
         document.getElementById('pokeName').value = '';
@@ -41,6 +41,24 @@ function deleteNumber() {
     }
     writeInfo();
 }
+
+// eslint-disable-next-line no-unused-vars
+function searchInfo() {
+    const input = document.getElementById('search');
+    const filter = input.value.toUpperCase();
+    const ul = document.getElementById('items');
+    const li = ul.getElementsByTagName('li');
+    for (let i = 0; i < li.length; i++) {
+        const divFinder = li[i].getElementsByTagName('div')[0];
+        const txtValue = divFinder.textContent || divFinder.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = '';
+        } else {
+            li[i].style.display = 'none';
+        }
+    }
+}
+
 
 /*
 Fazer um search, que vá buscando o mais proximo do que foi digitado no "search";

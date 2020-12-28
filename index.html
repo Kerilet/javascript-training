@@ -17,10 +17,11 @@
         </div>
 
         <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" id="search" placeholder="Search" oninput="" />
+            <input type="text" class="form-control" id="search" placeholder="Search" onkeyup="searchInfo()" />
         </div>
 
         <ul id="items" class="list-group"></ul>
+
         <div class="input-group input-group-sm mb-3">
             <button class="btn btn-danger" onclick="deleteInfo()">Delete all items</button>
             <button class="btn btn-danger" id="numberDeletion" onclick="deleteNumber()">Delete number</button>
