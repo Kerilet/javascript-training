@@ -61,8 +61,7 @@ function searchInfo() {
 
 
 /*
-Fazer um search, que vá buscando o mais proximo do que foi digitado no "search";
-dica: filter;
+
 -------------------------
 
 infoList - alterável
