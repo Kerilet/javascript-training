@@ -4,78 +4,61 @@ const matrix = [
     ['', '', ''],
 ];
 
-const desiredPosition = document.getElementById('position').value;
-
-let info = '';
-
-for (let i = 0; i < matrix.length; i++) {
-    info += '<tr>';
-    for (let x = 0; x < matrix[i].length; x++) {
-        info += `<td>${matrix[i][x]}</td>`;
-    }
-    info += '</tr>';
-}
-
-// eslint-disable-next-line no-unused-vars
-function addPosition() {
-    matrix.splice(matrix[0][0], 1, `${desiredPosition}`);
-    matrix.push(`${desiredPosition}`);
-    writeInfo();
-    document.getElementById('position').innerHTML = matrix.join('');
-    document.getElementById('position').value = '';
-}
-
-function writeInfo() {
-    matrix.sort();
-    document.getElementById('position').innerHTML = matrix.join('');
-}
-
-document.getElementById('jojo').innerHTML = info;
-console.log(matrix);
-
-/*
-//fazer um jogo da velha; usando posições como A1, A2,A3, B1, B2, B3;
+let turn = 0;
 
 
-const matrix = [];
-let info = '';
 
 // eslint-disable-next-line no-unused-vars
 function addPosition() {
     const desiredPosition = document.getElementById('position').value;
-    matrix.push(`${desiredPosition}`);
-    writeInfo();
-    document.getElementById('position').innerHTML = matrix.join('');
+    const rowLetter = desiredPosition[0];
+    const columnNumber = parseInt(desiredPosition[1] - 1);
+    const rowLabel = ['A', 'B', 'C'];
+    const rowNumber = rowLabel.indexOf(rowLetter.toUpperCase());
+    if (rowNumber >= 0 && rowNumber < 3 && columnNumber >= 0 && columnNumber < 3) {
+        const currentTurn = turn % 2 === 0 ? 'O' : 'X';
+        if (matrix[rowNumber][columnNumber] === '') {
+            matrix[rowNumber][columnNumber] = currentTurn;
+            writeInfo();
+            turn = turn + 1;
+        } else {
+            alert('You can not input your movement on a occupied cell you stupid degenerate that should not have existed, stop wasting our oxygen you oxymoron');
+        }
+    } else {
+        alert('Please enter valid information you stupid degenerate that should not have existed, stop wasting our oxygen you oxymoron');
+    }
+    checkWinner();
     document.getElementById('position').value = '';
 }
 
 function writeInfo() {
-    matrix.sort();
-    document.getElementById('position').innerHTML = matrix.join('');
-}
+    let info = '';
 
-for (let i = 0; i < matrix.length; i++) {
-    info += '<tr>';
-    for (let x = 0; x < matrix[i].length; x++) {
-        info += `<td>${matrix[i][x]}</td>`;
-        matrix.push(`${info}`);
+    for (let i = 0; i < matrix.length; i++) {
+        info += '<tr>';
+        for (let x = 0; x < matrix[i].length; x++) {
+            info += `<td>${matrix[i][x]}</td>`;
+        }
+        info += '</tr>';
     }
-    info += '</tr>';
+
+    document.getElementById('jojo').innerHTML = info;
 }
 
-document.getElementById('ticTacToe').innerHTML = info;
+function checkWinner() {
 
+}
 
-
-console.log(matrix);
+writeInfo();
 
 /*
-fazer um jogo da velha; usando posições como A1, A2, A3, B1, B2, B3;
+Liçon di KSa : comprar tompero; adicionar o botão reset; no final mostrar o resultado;
 
-Posições possíveis: A1 - A2 - A3 - B1 - B2 - B3 - C1 - C2 - C3
+---------------
 
-Ideia: como temos turnos, todos os turnos pares serão 'bolinha' (°) e os ímpares serão 'x' (x)
-pra isso, faremos uma array vazia que contará os turnos (maximo 9), e, usando mod, determinaremos
-o que a máquina irá escrever; Usar splice para substituir os espaços vazios pelos símbolos;
+linha tiver 3 simbolos identicos = esse simbolo eh o vencedor
+coluna tiver 3 simbolos identicos = esse simbolo eh o vencedor
+
+
 
 */
