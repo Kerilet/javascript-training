@@ -10,8 +10,8 @@
 
 <body>
     <div class="container">
-        <table class="table table-bordered table-dark table-striped">
-            <tbody id="jojo">
+        <table class="table table-bordered table-dark table-striped" id="boardGame">
+            <tbody id="checkers">
 
             </tbody>
         </table>
@@ -20,6 +20,7 @@
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Position (ex: A1)" id="position">
         <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="addPosition()">Add</button>
+        <button class="btn btn-outline-danger" type="button" id="button-addon1" onclick="resetBoard()">Reset</button>
     </div>
 
 </body>
