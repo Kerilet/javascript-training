@@ -5,20 +5,8 @@ let matrix = [
 ];
 
 let turn = 0;
-/*const winningCombinations = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
 
-*/
 
-//const omniCell = document.querySelectorAll('[data-cellElement');
 
 // eslint-disable-next-line no-unused-vars
 function addPosition() {
@@ -28,13 +16,13 @@ function addPosition() {
     const rowLabel = ['A', 'B', 'C'];
     const rowNumber = rowLabel.indexOf(rowLetter.toUpperCase());
     if (rowNumber >= 0 && rowNumber < 3 && columnNumber >= 0 && columnNumber < 3) {
-        const currentTurn = turn % 2 === 0 ? '<div class = "evenTurn cellElement">O</div>' : '<div class = "oddTurn cellElement">X</div>';
+        const currentTurn = turn % 2 === 0 ? 'O' : 'X';
         if (matrix[rowNumber][columnNumber] === '') {
             matrix[rowNumber][columnNumber] = currentTurn;
             writeInfo();
             turn = turn + 1;
             document.getElementById('position').value = '';
-            //checkWinner(currentTurn, omniCell);
+            checkWinner(currentTurn);
         } else {
             alert('You can not input your movement on a occupied cell you stupid degenerate that should not have existed, stop wasting our oxygen you oxymoron');
         }
@@ -55,22 +43,83 @@ function writeInfo() {
         }
         info += '</tr>';
     }
-
     document.getElementById('checkers').innerHTML = info;
+    checkWinner();
 }
 
-/* function checkWinner(currentTurn, omniCell) {
-    return winningCombinations.some(combination => {
-        return combination.every(index => {
-            return omniCell[index].classList.contains(currentTurn);
-        });
-    });
+function checkDraw() {
+    for (let z = 0; z < matrix.length; z++) {
+        for (let c = 0; c < matrix[z].length; c++) {
+            if (matrix[z][c] === '') {
+                return false;
+            }
+        }
+    }
+    return true;
 }
-*/
+
+function checkWinner() {
+    const winner = checkRows() || checkColumns() || checkDiagonals();
+    if (winner) {
+        alert(`${winner.toUpperCase()} wins!`);
+        resetBoard();
+    }
+    if (checkDraw() && !winner) {
+        alert('No winners, it\'s a draw!');
+        resetBoard();
+    }
+
+}
+
+function checkRows() {
+    for (let x = 0; x < matrix.length; x++) {
+        const text = matrix[x].join('');
+        if (text === 'XXX') {
+            return 'X';
+        }
+        if (text === 'OOO') {
+            return 'O';
+        }
+    }
+    return null;
+}
+
+function checkColumns() {
+    let column1 = '';
+    let column2 = '';
+    let column3 = '';
+    for (let y = 0; y < matrix.length; y++) {
+        column1 += matrix[y][0];
+        column2 += matrix[y][1];
+        column3 += matrix[y][2];
+    }
+    if (column1 === 'XXX' || column2 === 'XXX' || column3 === 'XXX') {
+        return 'X';
+    }
+    if (column1 === 'OOO' || column2 === 'OOO' || column3 === 'OOO') {
+        return 'O';
+    }
+    return null;
+}
+
+function checkDiagonals() {
+    if (matrix[0][0] === 'X' && matrix[1][1] === 'X' && matrix[2][2] === 'X') {
+        return 'X';
+    }
+    if (matrix[0][0] === 'O' && matrix[1][1] === 'O' && matrix[2][2] === 'O') {
+        return 'O';
+    }
+    if (matrix[0][2] === 'X' && matrix[1][1] === 'X' && matrix[2][0] === 'X') {
+        return 'X';
+    }
+    if (matrix[0][2] === 'O' && matrix[1][1] === 'O' && matrix[2][0] === 'O') {
+        return 'O';
+    }
+    return null;
+}
 
 writeInfo();
 
-// eslint-disable-next-line no-unused-vars
 function resetBoard() {
     matrix = [
         ['', '', ''],
@@ -78,6 +127,7 @@ function resetBoard() {
         ['', '', ''],
     ];
     document.getElementById('boardGame').value = '';
+    writeInfo();
 }
 
 
