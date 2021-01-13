@@ -1,144 +1,99 @@
-let matrix = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
+const isBastard = true;
+
+const dio = {};
+dio.fullName = 'Dio Brando';
+dio.age = 122;
+dio.isImmortal = true;
+dio.bastard = isBastard;
+dio.kills = [
+    'Noriaki Kakyoin',
+    'Jonnathan Joestar',
+    'George Joestar',
+    'Dario Brando',
+    'Fishermen',
 ];
+dio.image = './img/dio-brando-19367.jpg';
+dio.order = 1;
+dio.lifeType = 'vampire';
+dio.description = 'Dio Brando (ディオ・ブランドー Dio Burandō), known as DIO from Part 3 onwards, is the main antagonist of Part 1 and Part 3. After becoming a vampire and later a Stand user, Dio has gathered around him many minions and is responsible for many major events of the series, from the death of Jonathan Joestar to the Joestar Family\'s sudden acquisition of Stand power, and his legacy persists throughout the series.';
 
-let turn = 0;
+const zaWarudo = {
+    standtype: 'Punch Rush',
+    standRange: 'Close',
+    attacks: [
+        'Muda Muda',
+        'Stop Time',
+    ],
+};
 
+dio.stand = zaWarudo;
 
+console.log(dio.stand.attacks.length);
 
-// eslint-disable-next-line no-unused-vars
-function addPosition() {
-    const desiredPosition = document.getElementById('position').value;
-    const rowLetter = desiredPosition[0];
-    const columnNumber = parseInt(desiredPosition[1] - 1);
-    const rowLabel = ['A', 'B', 'C'];
-    const rowNumber = rowLabel.indexOf(rowLetter.toUpperCase());
-    if (rowNumber >= 0 && rowNumber < 3 && columnNumber >= 0 && columnNumber < 3) {
-        const currentTurn = turn % 2 === 0 ? 'O' : 'X';
-        if (matrix[rowNumber][columnNumber] === '') {
-            matrix[rowNumber][columnNumber] = currentTurn;
-            writeInfo();
-            turn = turn + 1;
-            document.getElementById('position').value = '';
-            checkWinner(currentTurn);
-        } else {
-            alert('You can not input your movement on a occupied cell you stupid degenerate that should not have existed, stop wasting our oxygen you oxymoron');
-        }
-    } else {
-        alert('Please enter valid information you stupid degenerate that should not have existed, stop wasting our oxygen you oxymoron');
-    }
+dio.fleshBud = true;
+delete dio.fleshBud;
 
-    document.getElementById('position').value = '';
+const kars = {
+    isImmortal: true,
+    lifeType: 'ultimate',
+    age: null,
+    fullName: '',
+    image: './javascript-training/img/kars.jpg',
+    hoodImage: './javascript-training/img/kars_hooded.png',
+    bastard: isBastard,
+    kills: [
+        'German Soldiers',
+        'Children',
+        'Citizens',
+        'All Pillar Men except Santviento, Wamuu and Esidisi',
+    ],
+    descripton: 'Kars is the leader of the Pillar Men, and the designer of the Stone Mask. His goal is to evolve further to become immune to the sun\'s rays, and thus he seeks the Red Stone of Aja to empower his Masks, battling the Ripple users for its possession.',
+};
+
+const esidisi = {
+    isImmortal: false,
+    lifeType: 'pillarMen',
+    age: null,
+    fullName: 'Esidisi of the Flame',
+    image: './javascript-training/img/esidisi.png',
+    bastard: false,
+    kills: [
+        'Loggins',
+    ],
+    description: 'Esidisi (エシディシ Eshidishi) is an antagonist featured in Battle Tendency.  He is the second highest ranked Pillar Man after Kars and battles the Ripple users for the possession of the Red Stone of Aja.',
+};
+
+const wamuu = {
+    isImmortal: false,
+    lifeType: 'pillarMen',
+    age: null,
+    fullName: '',
+    image: './javascript-training/img/whamu.jpg',
+    bastard: false,
+    kills: [
+        'Mario Zeppeli',
+        'German Soldiers',
+        'Mark',
+        'Caesar Anthonio Zeppeli',
+    ],
+    description: 'Wamuu (ワムウ Wamū) is a major antagonist featured in Battle Tendency and a proud Pillar Man warrior in the respectful service of his superiors Esidisi and Kars, also serving as a personal rival to Joseph Joestar throughout his journey.',
+};
+
+const mainAntagonists = [dio, wamuu, esidisi, kars];
+
+function fillCard(dio) {
+    let desc = document.getElementById('description');
+    desc = document.getElementById('description').value = `${dio.description}`;
+    let image = document.getElementById('dio');
+    image = document.getElementById('dio').value = `${dio.image}`;
 }
 
-function writeInfo() {
-    let info = '';
-
-    for (let i = 0; i < matrix.length; i++) {
-        info += '<tr>';
-        for (let x = 0; x < matrix[i].length; x++) {
-            info += `<td>${matrix[i][x]}</td>`;
-        }
-        info += '</tr>';
-    }
-    document.getElementById('checkers').innerHTML = info;
-    checkWinner();
-}
-
-function checkDraw() {
-    for (let z = 0; z < matrix.length; z++) {
-        for (let c = 0; c < matrix[z].length; c++) {
-            if (matrix[z][c] === '') {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-function checkWinner() {
-    const winner = checkRows() || checkColumns() || checkDiagonals();
-    if (winner) {
-        alert(`${winner.toUpperCase()} wins!`);
-        resetBoard();
-    }
-    if (checkDraw() && !winner) {
-        alert('No winners, it\'s a draw!');
-        resetBoard();
-    }
-
-}
-
-function checkRows() {
-    for (let x = 0; x < matrix.length; x++) {
-        const text = matrix[x].join('');
-        if (text === 'XXX') {
-            return 'X';
-        }
-        if (text === 'OOO') {
-            return 'O';
-        }
-    }
-    return null;
-}
-
-function checkColumns() {
-    let column1 = '';
-    let column2 = '';
-    let column3 = '';
-    for (let y = 0; y < matrix.length; y++) {
-        column1 += matrix[y][0];
-        column2 += matrix[y][1];
-        column3 += matrix[y][2];
-    }
-    if (column1 === 'XXX' || column2 === 'XXX' || column3 === 'XXX') {
-        return 'X';
-    }
-    if (column1 === 'OOO' || column2 === 'OOO' || column3 === 'OOO') {
-        return 'O';
-    }
-    return null;
-}
-
-function checkDiagonals() {
-    if (matrix[0][0] === 'X' && matrix[1][1] === 'X' && matrix[2][2] === 'X') {
-        return 'X';
-    }
-    if (matrix[0][0] === 'O' && matrix[1][1] === 'O' && matrix[2][2] === 'O') {
-        return 'O';
-    }
-    if (matrix[0][2] === 'X' && matrix[1][1] === 'X' && matrix[2][0] === 'X') {
-        return 'X';
-    }
-    if (matrix[0][2] === 'O' && matrix[1][1] === 'O' && matrix[2][0] === 'O') {
-        return 'O';
-    }
-    return null;
-}
-
-writeInfo();
-
-function resetBoard() {
-    matrix = [
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', ''],
-    ];
-    document.getElementById('boardGame').value = '';
-    writeInfo();
-}
-
+fillCard();
 
 /*
-Liçon di KSa : comprar tompero; adicionar o botão reset; no final mostrar o resultado;
 
----------------
+Fazer um card, com os vilões de JoJo's Bizarre Adventure (até a parte 4 pra eu n receber spoiler) com todas as informações de seus respectivos objetos;
 
-linha tiver 3 simbolos identicos = esse simbolo eh o vencedor
-coluna tiver 3 simbolos identicos = esse simbolo eh o vencedor
-
-
+we now have PokeAPI, thanks to von Stroheim, because German science is the best in the world;
 
 */
