@@ -1,0 +1,18 @@
+[
+  {
+    "isImmortal": true,
+    "lifeType": "Ultimate",
+    "age": null,
+    "fullName": "Kars",
+    "image": "./img/kars.jpg",
+    "hoodImage": "./img/kars_hooded.png",
+    "bastard": true,
+    "kills": [
+      "German Soldiers",
+      "Children",
+      "Citizens",
+      "All Pillar Men except Santviento, Wamuu and Esidisi"
+    ],
+    "description": "Kars is the leader of the Pillar Men, and the designer of the Stone Mask. His goal is to evolve further to become immune to the sun\"s rays, and thus he seeks the Red Stone of Aja to empower his Masks, battling the Ripple users for its possession."
+  }
+]
