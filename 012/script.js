@@ -1,14 +1,19 @@
 // loadPokemon();
 
-const defaultSite = 'https://pokeapi.co/api/v2/pokemon/';
-const desiredPokemon = document.getElementById('pokemonName');
-
-const desiredInfo = defaultSite + desiredPokemon;
+// eslint-disable-next-line no-unused-vars
+function showPokemon() {
+    const defaultSite = 'https://pokeapi.co/api/v2/pokemon/';
+    const desiredPokemon = document.getElementById('pokemonName').value;
+    const fancyName = desiredPokemon.toLowerCase(`${desiredPokemon}`);
+    const desiredInfo = defaultSite + fancyName;
+    console.log(desiredInfo, desiredPokemon, defaultSite);
+    loadPokemon(desiredInfo);
+}
 
 // eslint-disable-next-line no-unused-vars
-function loadPokemon() {
+function loadPokemon(desiredInfo) {
     // ajax
-    fetch(`${defaultSite}`)
+    fetch(`${desiredInfo}`)
         .then(function fn(res) {
             res.json()
                 .then(function fn(json) {
@@ -43,10 +48,10 @@ function fillPokemon(pokemon) {
                   <img src="${pokemon.sprites.front_shiny}" class="card-img-top" alt="" class="image">
                   <div class="card-body">
                       <h5 class="card-title">${pokemon.name}</h5>
-                      <p class="card-text" id="description">${pokemon.description}</p>
+                      <p class="card-text" id="description">W.I.P</p>
                   </div>
                   <ul class="list-group list-group-flush">
-                      <li class="list-group-item" id="moves">${pokemon.moves}</li>
+                      <li class="list-group-item" id="moves">W.I.P</li>
                       <li class="list-group-item" id="types">${displayTypes(pokemon.types)}</li>
                       <li class="list-group-item" id="abilities"><b>abilities:</b><br />${displayAbilities(pokemon.abilities)}</li>
                   </ul>
@@ -56,7 +61,3 @@ function fillPokemon(pokemon) {
 
     document.getElementById('row').innerHTML = html;
 }
-
-console.log(desiredInfo);
-
-// fazer o "showPokemon" funcionar do jeito que deve, com o pokemon que estiver no input (ex: Pikachu no input, mostre Pikachu)
