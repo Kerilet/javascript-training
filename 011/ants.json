@@ -1,18 +1,62 @@
-[
-  {
-    "isImmortal": true,
-    "lifeType": "Ultimate",
-    "age": null,
-    "fullName": "Kars",
-    "image": "./img/kars.jpg",
-    "hoodImage": "./img/kars_hooded.png",
-    "bastard": true,
-    "kills": [
-      "German Soldiers",
-      "Children",
-      "Citizens",
-      "All Pillar Men except Santviento, Wamuu and Esidisi"
-    ],
-    "description": "Kars is the leader of the Pillar Men, and the designer of the Stone Mask. His goal is to evolve further to become immune to the sun\"s rays, and thus he seeks the Red Stone of Aja to empower his Masks, battling the Ripple users for its possession."
-  }
+[{
+        "isImmortal": true,
+        "lifeType": "Vampire",
+        "age": 122,
+        "fullName": "Dio Brando",
+        "image": "./img/dio-brando-19367.jpg",
+        "bastard": true,
+        "kills": [
+            "German Soldiers",
+            "Children",
+            "Citizens",
+            "All Pillar Men except Santviento, Wamuu and Esidisi"
+        ],
+        "description": "Dio Brando (ディオ・ブランドー Dio Burandō), known as DIO from Part 3 onwards, is the main antagonist of Part 1 and Part 3. After becoming a vampire and later a Stand user, Dio has gathered around him many minions and is responsible for many major events of the series, from the death of Jonathan Joestar to the Joestar Family's sudden acquisition of Stand power, and his legacy persists throughout the series."
+    },
+
+    {
+        "isImmortal": true,
+        "lifeType": "Ultimate",
+        "age": null,
+        "fullName": "Kars",
+        "image": "./img/kars.jpg",
+        "hoodImage": "./img/kars_hooded.png",
+        "bastard": true,
+        "kills": [
+            "German Soldiers",
+            "Children",
+            "Citizens",
+            "All Pillar Men except Santviento, Wamuu and Esidisi"
+        ],
+        "description": "Kars is the leader of the Pillar Men, and the designer of the Stone Mask. His goal is to evolve further to become immune to the sun\"s rays, and thus he seeks the Red Stone of Aja to empower his Masks, battling the Ripple users for its possession."
+    },
+
+    {
+        "isImmortal": false,
+        "lifeType": "Pillar Man",
+        "age": null,
+        "fullName": "Esidisi of the Flame",
+        "image": "./img/esidisi.png",
+        "bastard": false,
+        "kills": [
+            "Loggins"
+        ],
+        "description": "Esidisi (エシディシ Eshidishi) is an antagonist featured in Battle Tendency.  He is the second highest ranked Pillar Man after Kars and battles the Ripple users for the possession of the Red Stone of Aja."
+    },
+
+    {
+        "isImmortal": false,
+        "lifeType": "Pillar Man",
+        "age": null,
+        "fullName": "Wamuu",
+        "image": "./img/whamu.jpg",
+        "bastard": false,
+        "kills": [
+            "Mario Zeppeli",
+            "Mark",
+            "German Soldiers",
+            "Caesar Anthonio Zeppeli"
+        ],
+        "description": "Wamuu (ワムウ Wamū) is a major antagonist featured in Battle Tendency and a proud Pillar Man warrior in the respectful service of his superiors Esidisi and Kars, also serving as a personal rival to Joseph Joestar throughout his journey."
+    }
 ]
