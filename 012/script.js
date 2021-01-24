@@ -1,13 +1,17 @@
 // loadPokemon();
 
 // eslint-disable-next-line no-unused-vars
-function showPokemon() {
+function showPokemon(event) {
+    event.preventDefault(); 
     const defaultSite = 'https://pokeapi.co/api/v2/pokemon/';
     const desiredPokemon = document.getElementById('pokemonName').value;
     const fancyName = desiredPokemon.toLowerCase(`${desiredPokemon}`);
     const desiredInfo = defaultSite + fancyName;
-    console.log(desiredInfo, desiredPokemon, defaultSite);
+    document.getElementById('row').innerHTML = `
+        <div class="spinner-border" role="status">
+        </div>`;    
     loadPokemon(desiredInfo);
+    return false;
 }
 
 // eslint-disable-next-line no-unused-vars
