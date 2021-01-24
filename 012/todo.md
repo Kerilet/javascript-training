@@ -1,4 +1,4 @@
-- Se entrar com palavras com espaço, substituir por '-' antes de buscar
-- se não encontrar nenhum pokemon, retornar mensagem de erro e tirar o loading
-- Deixar tela mais bonita
-- Colocar carrocel de imagens
+- Se entrar com palavras com espaço, substituir por '-' antes de buscar: check
+- se não encontrar nenhum pokemon, retornar mensagem de erro e tirar o loading: pending
+- Deixar tela mais bonita: check
+- Colocar carousel de imagens: w.i.p

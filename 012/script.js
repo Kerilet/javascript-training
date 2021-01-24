@@ -2,14 +2,15 @@
 
 // eslint-disable-next-line no-unused-vars
 function showPokemon(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     const defaultSite = 'https://pokeapi.co/api/v2/pokemon/';
-    const desiredPokemon = document.getElementById('pokemonName').value;
+    const inputInfo = document.getElementById('pokemonName').value;
+    const desiredPokemon = inputInfo.replace(/ /gi, '-');
     const fancyName = desiredPokemon.toLowerCase(`${desiredPokemon}`);
     const desiredInfo = defaultSite + fancyName;
     document.getElementById('row').innerHTML = `
         <div class="spinner-border" role="status">
-        </div>`;    
+        </div>`;
     loadPokemon(desiredInfo);
     return false;
 }
@@ -61,7 +62,61 @@ function fillPokemon(pokemon) {
                   </ul>
 
               </div>
-          </div>`;
+          </div>
+
+          `;
 
     document.getElementById('row').innerHTML = html;
 }
+
+/*
+
+*/
+
+/*
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="${pokemon.sprites.front_default}" class="d-block w-100" alt="frontSprite">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Front Sprite (Normal)</h5>
+        <p>Gen 5 - Black & White</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="${pokemon.sprites.front_shiny}" class="d-block w-100" alt="frontShinySprite">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Front Sprite (Shiny)</h5>
+        <p>Gen 5 - Black & White</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="${pokemon.sprites.back_default}" class="d-block w-100" alt="backSprite">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Back Sprite (Normal)</h5>
+        <p>Gen 5 - Black & White</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="${pokemon.sprites.back_shiny}" class="d-block w-100" alt="backSprite">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Back Sprite (Shiny)</h5>
+        <p>Gen 5 - Black & White</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+*/
