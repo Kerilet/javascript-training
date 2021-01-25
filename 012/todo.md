@@ -1,4 +1,4 @@
-- Se entrar com palavras com espaço, substituir por '-' antes de buscar: check
-- se não encontrar nenhum pokemon, retornar mensagem de erro e tirar o loading: pending
-- Deixar tela mais bonita: check
-- Colocar carousel de imagens: w.i.p
+- If the person enter a Pokémon with space (''), convert it into a hyphen ('-'): check
+- Check if the person entered a valid pokemon, if not do an alert + remove the loading spinner: pending
+- Make the layout prettier: check
+- Insert carousel for the sprites: check
