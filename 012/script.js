@@ -21,24 +21,33 @@ function loadPokemon(desiredInfo) {
     fetch(`${desiredInfo}`)
         .then(function fn(res) {
             res.json()
-                .then(function fn(json) {
-                    console.log(json);
-                    fillPokemon(json);
-                });
-        });
+                .then(function fn(pokemon) {
+                    if (pokemon && pokemon.id) {
+                      loadDex(pokemon.id)
+                        .then((species) => {
+                          fillPokemon(pokemon, species);
+                        })
+                        .catch(function fn(error) {
+                          document.getElementById('row').innerHTML = 'Pokemon not found :(';
+                        });                       
+                    } else {
+                      document.getElementById('row').innerHTML = 'Pokemon not found :(';
+                    } 
+                })
+                .catch(function fn(error) {
+                  document.getElementById('row').innerHTML = 'Pokemon not found :(';
+                });                 
+        })
+        .catch(function fn(error) {
+          document.getElementById('row').innerHTML = 'Pokemon not found :(';
+        });            
 }
 
 // eslint-disable-next-line no-unused-vars
-function loadDex(url) {
-  // ajax
-  fetch(`${url}`)
-      .then(function fn(res) {
-          res.json()
-              .then(function fn(json) {
-                  console.log(json);
-                  displayInfo(json);
-              });
-      });
+const loadDex = async (id) => {
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+  const species = await res.json();
+  return species;
 }
 
 
@@ -66,9 +75,9 @@ function displayInfo(url) {
 }
 
 
-function fillPokemon(pokemon) {
+function fillPokemon(pokemon, species) {
   const url = `${pokemon.species.url}`;
-  loadDex(url)
+  loadDex(url);
   const html = `<div class="col-sm cardCol">
               <div class="card" style="width: 18rem;">
               <div id="carouselExampleCaptions" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -82,28 +91,24 @@ function fillPokemon(pokemon) {
                 <div class="carousel-item active">
                   <img src="${pokemon.sprites.front_default}" class="d-block w-100" alt="frontSprite">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Front Sprite (Normal)</h5>
                     <p>Gen 5 - Black & White</p>
                   </div>
                 </div>
                 <div class="carousel-item">
                   <img src="${pokemon.sprites.front_shiny}" class="d-block w-100" alt="frontShinySprite">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Front Sprite (Shiny)</h5>
                     <p>Gen 5 - Black & White</p>
                   </div>
                 </div>
                 <div class="carousel-item">
                   <img src="${pokemon.sprites.back_default}" class="d-block w-100" alt="backSprite">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Back Sprite (Normal)</h5>
                     <p>Gen 5 - Black & White</p>
                   </div>
                 </div>
                 <div class="carousel-item">
                   <img src="${pokemon.sprites.back_shiny}" class="d-block w-100" alt="backSprite">
                   <div class="carousel-caption d-none d-md-block">
-                    <h5>Back Sprite (Shiny)</h5>
                     <p>Gen 5 - Black & White</p>
                   </div>
                 </div>
@@ -122,7 +127,8 @@ function fillPokemon(pokemon) {
                       <p class="card-text" id="description">${displayInfo(url)}</p>
                   </div>
                   <ul class="list-group list-group-flush">
-                      <li class="list-group-item" id="moves">W.I.P</li>
+                      <li class="list-group-item" id="moves">Hapiness: ${species.base_happiness}</li>
+                      <li class="list-group-item" id="moves">Hapiness: ${species.flavor_text_entries[1].flavor_text}</li>
                       <li class="list-group-item" id="types">${displayTypes(pokemon.types)}</li>
                       <li class="list-group-item" id="abilities"><b>abilities:</b><br />${displayAbilities(pokemon.abilities)}</li>
                   </ul>
