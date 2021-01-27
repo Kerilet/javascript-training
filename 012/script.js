@@ -23,32 +23,32 @@ function loadPokemon(desiredInfo) {
             res.json()
                 .then(function fn(pokemon) {
                     if (pokemon && pokemon.id) {
-                      loadDex(pokemon.id)
-                        .then((species) => {
-                          fillPokemon(pokemon, species);
-                        })
-                        .catch(function fn(error) {
-                          document.getElementById('row').innerHTML = 'Pokemon not found :(';
-                        });                       
+                        loadDex(pokemon.id)
+                            .then((species) => {
+                                fillPokemon(pokemon, species);
+                            })
+                            .catch(function fn() {
+                                document.getElementById('row').innerHTML = 'Pokemon not found :(';
+                            });
                     } else {
-                      document.getElementById('row').innerHTML = 'Pokemon not found :(';
-                    } 
+                        document.getElementById('row').innerHTML = 'Pokemon not found :(';
+                    }
                 })
-                .catch(function fn(error) {
-                  document.getElementById('row').innerHTML = 'Pokemon not found :(';
-                });                 
+                .catch(function fn() {
+                    document.getElementById('row').innerHTML = 'Pokemon not found :(';
+                });
         })
-        .catch(function fn(error) {
-          document.getElementById('row').innerHTML = 'Pokemon not found :(';
-        });            
+        .catch(function fn() {
+            document.getElementById('row').innerHTML = 'Pokemon not found :(';
+        });
 }
 
 // eslint-disable-next-line no-unused-vars
-const loadDex = async (id) => {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
-  const species = await res.json();
-  return species;
-}
+const loadDex = async(id) => {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+    const species = await res.json();
+    return species;
+};
 
 
 function displayTypes(types) {
@@ -70,15 +70,15 @@ function displayAbilities(abilities) {
 }
 
 function displayInfo(url) {
-  const dexEntry = `${url.capture_rate}`;
-  return dexEntry;
+    const dexEntry = `${url.capture_rate}`;
+    return dexEntry;
 }
 
 
 function fillPokemon(pokemon, species) {
-  const url = `${pokemon.species.url}`;
-  loadDex(url);
-  const html = `<div class="col-sm cardCol">
+    const url = `${pokemon.species.url}`;
+    loadDex(url);
+    const html = `<div class="col-sm cardCol">
               <div class="card" style="width: 18rem;">
               <div id="carouselExampleCaptions" class="carousel slide carousel-dark" data-bs-ride="carousel">
               <ol class="carousel-indicators">
