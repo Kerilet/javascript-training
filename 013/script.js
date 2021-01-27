@@ -45,7 +45,7 @@ const konamiKode = [
 
 
 const writeKonamiCode = () => {
-    document.body.innerHTML = '<h1>Konami Code!!!!!!!</h1>';
+    document.body.innerHTML += '<img src="../img/rickroll.gif" alt="Konami Kode duuude!" loading="here\'s an easter egg!">';
 };
 
 
