@@ -27,7 +27,10 @@ funcoes de callback
  sempre recebe uma funcao como parametro, e sempre executa uma funcao ao "ativar"
 */
 
-let codes = [];
+let codes1 = [];
+
+
+let codes2 = [];
 
 const konamiKode = [
     'ArrowUp',
@@ -43,28 +46,58 @@ const konamiKode = [
     'Enter',
 ].join('-');
 
+const barrelRoll = [
+    'd',
+    'o',
+    'a',
+    'b',
+    'a',
+    'r',
+    'r',
+    'e',
+    'l',
+    'r',
+    'o',
+    'l',
+    'l',
+].join('-');
 
 const writeKonamiCode = () => {
     document.body.innerHTML += '<img src="../img/rickroll.gif" alt="Konami Kode duuude!" loading="here\'s an easter egg!">';
 };
 
+const barrelCheck = (callback /* is a function */ ) => {
+    document.addEventListener('keyup', (event) => {
+        codes2.push(event.key);
+        const joined = codes2.join('-');
+        if (barrelRoll.startsWith(joined)) {
+            if (barrelRoll === joined) {
+                callback();
+            }
+        } else {
+            codes2 = [];
+        }
+        console.log(event, codes2);
+    });
+};
 
 const konamiCheck = (callback /* is a function */ ) => {
     document.addEventListener('keyup', (event) => {
-        codes.push(event.key);
-        const joined = codes.join('-');
+        codes1.push(event.key);
+        const joined = codes1.join('-');
         if (konamiKode.startsWith(joined)) {
             if (konamiKode === joined) {
                 callback();
             }
         } else {
-            codes = [];
+            codes1 = [];
         }
-        console.log(event, codes);
+        console.log(event, codes1);
     });
 };
 
 konamiCheck(writeKonamiCode);
+barrelCheck(writeKonamiCode);
 // konamiCheck(showAJojoChar);
 
-//termine o konami code :v
+// faça o barrel roll
