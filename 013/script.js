@@ -63,8 +63,14 @@ const barrelRoll = [
 ].join('-');
 
 const writeKonamiCode = () => {
-    document.body.innerHTML += '<img src="../img/rickroll.gif" alt="Konami Kode duuude!" loading="here\'s an easter egg!">';
+    document.body.innerHTML += `<img src="../img/rickroll.gif" alt="Konami Kode duuude!" loading="here\'s an easter egg!">`;
+    playAudio();
 };
+
+const playAudio = () => {
+    var audio = document.getElementById("audio");
+    audio.play();
+}
 
 const barrelCheck = (callback /* is a function */ ) => {
     document.addEventListener('keyup', (event) => {
