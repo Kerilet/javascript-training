@@ -63,14 +63,58 @@ const barrelRoll = [
 ].join('-');
 
 const writeKonamiCode = () => {
-    document.body.innerHTML += `<img src="../img/rickroll.gif" alt="Konami Kode duuude!" loading="here\'s an easter egg!">`;
+    document.body.innerHTML += '<img src="../img/rickroll.gif" alt="Konami Kode duuude!" loading="here\'s an easter egg!">';
     playAudio();
 };
 
 const playAudio = () => {
-    var audio = document.getElementById("audio");
+    const audio = document.getElementById('audio1');
     audio.play();
-}
+};
+
+const playAudio2 = () => {
+    const audio = document.getElementById('audio2');
+    audio.play();
+};
+
+const rotateScreen = () => {
+    var a = '-webkit-',
+        b = 'transform:rotate(1turn);',
+        c = 'transition:4s;';
+    document.head.innerHTML += '<style>body{' + a + b + a + c + b + c;
+};
+
+const spinScreen = () => {
+    var a = '-webkit-', // vendor prefix for Chrome, Safari
+        b = 'transform:rotate(1turn);', // the CSS for rotating 360deg
+        c = 'transition:4s;'; // the CSS for making the rotation last 4 seconds
+
+    document.head.innerHTML // adding a style tag to the <head>
+        += '<style>body{' + a + b + a + c + b + c; // the combined CSS in the style tag
+
+    /*
+    This actually generates a string that looks like:
+    "<style>body{-webkit-transform:rotate(1turn);-webkit-transition:4s;transform:rotate(1turn);transition(4s);"
+    Which obviously is lacking a closing tag and a closing bracket, but luckily browsers are smart enough to figure this out.
+    It also only has vendor prefixes for WebKit. That's because it turns out Firefox and Opera work just fine without the prefixes here.
+    */
+};
+
+const writeBarrelRoll = () => {
+    document.body.innerHTML += ` <script>
+    var doABarrelRoll = function() {
+        var a = "-webkit-",
+            b = 'transform:rotate(1turn);',
+            c = 'transition:4s;';
+        document.head.innerHTML += '<style>body{' + a + b + a + c + b + c
+    }
+
+    doABarrelRoll();
+</script>`;
+    rotateScreen();
+    spinScreen();
+    playAudio2();
+};
 
 const barrelCheck = (callback /* is a function */ ) => {
     document.addEventListener('keyup', (event) => {
@@ -103,7 +147,19 @@ const konamiCheck = (callback /* is a function */ ) => {
 };
 
 konamiCheck(writeKonamiCode);
-barrelCheck(writeKonamiCode);
+barrelCheck(writeBarrelRoll);
 // konamiCheck(showAJojoChar);
 
 // faça o barrel roll
+/*
+        <script>
+            var doABarrelRoll = function() {
+                var a = "-webkit-",
+                    b = 'transform:rotate(1turn);',
+                    c = 'transition:4s;';
+                document.head.innerHTML += '<style>body{' + a + b + a + c + b + c
+            }
+
+            doABarrelRoll();
+        </script>
+*/
