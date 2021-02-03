@@ -13,13 +13,13 @@ I, Wendell Navarro, will now learn javascript
 - Switch-case
 - Numbers/Math 
 - Strings `done`
-- Arrays
-- Objects
+- Arrays `done`
+- Objects `done`
 - Date
-- Regex
+- Regex `done`
 - Class (OOP)
 - DOM
 - Form validation
-- Callback functions
-- AJAX
+- Callback functions `done`
 - Promises
+- AJAX
