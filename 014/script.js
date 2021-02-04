@@ -1,14 +1,14 @@
 // default params
 const buildJojo = (name, father = 'Some Jojo', age = 20, kills = []) => {
-    return `${name} is ${age} years old, his father is ${father}, he kills ${kills.length} people`
-}
+    return `${name} is ${age} years old, his father is ${father}, he kills ${kills.length} people`;
+};
 
 console.log(buildJojo('Joseph Joestar'));
 
 // named params
 const buildVillain = ({ name, season, kills, attacks, stand }) => {
     return `${name} from Season ${season} kills ${kills.length} people, he has ${attacks.join(', ')} and his stands is ${stand}`;
-}
+};
 
 console.log(buildVillain({
     attacks: ['Stop time'],
@@ -20,7 +20,7 @@ console.log(buildVillain({
 // default params + name params
 const buildCharacter = ({ name, season, kills = [], attacks = ['unknown'], stand = 'unknown' }) => {
     return `${name} from Season ${season} kills ${kills.length} people, he has ${attacks.join(',')} and his stands is ${stand}`;
-}
+};
 
 console.log(buildCharacter({
     name: 'Diavolo',
@@ -31,7 +31,7 @@ console.log(buildCharacter({
 // Mixed
 const buildAny = (name, { season, kills, attacks }) => {
     return buildCharacter({ name, season, kills, attacks });
-}
+};
 
 console.log(buildAny('Kira', {
     stand: 'Killer Queen',
@@ -52,7 +52,7 @@ console.log(buildAny('Kira', {
 
 const getPokemon = async() => {
     return true;
-}
+};
 
 
-getPokemon()
+getPokemon();
