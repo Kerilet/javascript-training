@@ -1,12 +1,11 @@
-import { getIceCream, getIceCreamCone, getIceCreamTopping } from './script1.js';
-import { getIceCream2, getIceCreamCone2, getIceCreamTopping2 } from './script2.js';
+import { addInfo, deleteInfo, searchInfo, deleteSingle, writeInfo } from "./script3.js";
 
-window.getIceCream = getIceCream;
-window.getIceCreamCone = getIceCreamCone;
-window.getIceCreamTopping = getIceCreamTopping;
-window.getIceCream2 = getIceCream2;
-window.getIceCreamCone2 = getIceCreamCone2;
-window.getIceCreamTopping2 = getIceCreamTopping2;
+window.addInfo = addInfo;
+window.deleteInfo = deleteInfo;
+window.searchInfo = searchInfo;
+window.writeInfo = writeInfo;
+window.deleteSingle = deleteSingle;
+
 
 
 /*
@@ -20,8 +19,8 @@ toDo {
 possible functions :
 insert new toDo - press enter to do so.
 delete an existing toDo - click a button to do so.
-toggle the state of existing toDo - click a button to do so.
+toggle the state of existing toDo - click a button to do so. -- modify object
 clear all completed toDo - click a button to do so.
-filter toDos by their state - click a menu to do so.
-edit a toDo - double click to do so.
+filter toDos by their state - click a menu to do so.  -- use object data
+edit a toDo - double click to do so.  -- modify object
 */

@@ -17,7 +17,7 @@ function addPokemon() {
 
 function writeInfo() {
     infoList.sort();
-    document.getElementById('position').innerHTML = infoList.join('');
+    document.getElementById('items').innerHTML = infoList.join('');
 }
 
 // eslint-disable-next-line no-unused-vars

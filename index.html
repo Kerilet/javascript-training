@@ -10,8 +10,26 @@
 </head>
 
 <body>
-    <button type="button" class="btn btn-primary" onclick="getIceCreamTopping()">Primary</button>
-    <button type="button" class="btn btn-secondary" onclick="getIceCreamTopping2()">Secondary</button>
+    <div class="container">
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" id="toDos" placeholder="Name" />
+            <button class="btn btn-primary" onclick="addInfo()">Add ToDo</button>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" id="search" placeholder="Search" onkeyup="searchInfo()" />
+        </div>
+
+        <ul id="items" class="list-group"></ul>
+
+        <div class="input-group input-group-sm mb-3">
+            <button class="btn btn-danger" onclick="deleteInfo()">Delete all items</button>
+            <button class="btn btn-danger" id="numberDeletion" onclick="deleteSingle()">Delete a toDo</button>
+        </div>
+
+    </div>
 </body>
+
+
 
 </html>
