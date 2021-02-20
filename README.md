@@ -18,7 +18,7 @@ I, Wendell Navarro, will now learn javascript
 - Date
 - Regex `done`
 - Class (OOP)
-- DOM
+- DOM `done`
 - Form validation
 - Callback functions `done`
 - Promises
