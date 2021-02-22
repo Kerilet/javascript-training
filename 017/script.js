@@ -4,7 +4,7 @@ export const fetchPokemon = async(name) => {
     showInfo(json);
 }
 
-export function displayTypes(types) {
+export const displayTypes= async(types) => {
     const typeNames = [];
     for (let i = 0; i < types.length; i++) {
         const typeName = types[i].type.name;
@@ -13,9 +13,7 @@ export function displayTypes(types) {
     return typeNames.join('/');
 }
 
-export
-
-function displayAbilities(abilities) {
+export const displayAbilities = async(abilities) => {
     const abilityList = [];
     for (let x = 0; x < abilities.length; x++) {
         const abilityName = abilities[x].ability.name;
@@ -24,8 +22,8 @@ function displayAbilities(abilities) {
     return abilityList.join('<br>');
 }
 
-
-export const showInfo = async(pokemon) => {
+export const showInfo = async(event) => {
+  console.log(`${event.name}`)
     const html = `<div class="col-sm cardCol">
               <div class="card" style="width: 18rem;">
               <div id="carouselExampleCaptions" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -37,25 +35,25 @@ export const showInfo = async(pokemon) => {
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="${pokemon.sprites.front_default}" class="d-block w-100" alt="frontSprite">
+                  <img src="${event.sprites.front_default}" class="d-block w-100" alt="frontSprite">
                   <div class="carousel-caption d-none d-md-block">
                     <p>Gen 5 - Black & White</p>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="${pokemon.sprites.front_shiny}" class="d-block w-100" alt="frontShinySprite">
+                  <img src="${event.sprites.front_shiny}" class="d-block w-100" alt="frontShinySprite">
                   <div class="carousel-caption d-none d-md-block">
                     <p>Gen 5 - Black & White</p>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="${pokemon.sprites.back_default}" class="d-block w-100" alt="backSprite">
+                  <img src="${event.sprites.back_default}" class="d-block w-100" alt="backSprite">
                   <div class="carousel-caption d-none d-md-block">
                     <p>Gen 5 - Black & White</p>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="${pokemon.sprites.back_shiny}" class="d-block w-100" alt="backSprite">
+                  <img src="${event.sprites.back_shiny}" class="d-block w-100" alt="backSprite">
                   <div class="carousel-caption d-none d-md-block">
                     <p>Gen 5 - Black & White</p>
                   </div>
@@ -71,14 +69,12 @@ export const showInfo = async(pokemon) => {
               </a>
             </div>
                   <div class="card-body">
-                      <h5 class="card-title">${pokemon.name}</h5>
-                      <p class="card-text" id="description">${displayInfo(url)}</p>
+                      <h5 class="card-title">${event.name}</h5>
+                      <p class="card-text" id="description">DEX ENTRY</p>
                   </div>
                   <ul class="list-group list-group-flush">
-                      <li class="list-group-item" id="moves">Hapiness: ${species.base_happiness}</li>
-                      <li class="list-group-item" id="moves">Hapiness: ${species.flavor_text_entries[1].flavor_text}</li>
-                      <li class="list-group-item" id="types">${displayTypes(pokemon.types)}</li>
-                      <li class="list-group-item" id="abilities"><b>abilities:</b><br />${displayAbilities(pokemon.abilities)}</li>
+                      <li class="list-group-item" id="types">${displayTypes(event.types)}</li>
+                      <li class="list-group-item" id="abilities"><b>abilities:</b><br />${displayAbilities(event.abilities)}</li>
                   </ul>
 
               </div>
@@ -99,10 +95,9 @@ export const fetchPokemons = async() => {
     return json.results;
 }
 
-
 export const getPokemons = async(el) => {
     const pokemons = await fetchPokemons();
     currentNumber = currentNumber + 20;
-    const html = pokemons.map((e) => `<div>${e.name}</div>`).join('');
+    const html = pokemons.map((e) => `<button onclick="${fetchPokemon(e.name)})">${e.name}</button>`).join('');
     document.getElementById(el).innerHTML += html;
 }
