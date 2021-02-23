@@ -5,26 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script type="module">
-        import { getPokemons } from './script.js'; window.getPokemons = getPokemons;
-
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <button onclick="getPokemons('list')">Get 20 pokemons</button>
     <div class="container">
         <div class="row">
-          <div class="col-sm" id="list">
-            One of two columns
-          </div>
-          <div class="col-sm" id="list-info">
-            One of two columns
-          </div>
+            <nav aria-label="Page navigation example" id="boxPagination">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous" id="prevButton">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item" id="pager"></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next" id="nextButton">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="col-sm" id="list">
+
+            </div>
+            <div class="col-sm" id="list-info">
+
+            </div>
         </div>
-      </div>
+    </div>
 </body>
+<script type="module">
+    import { getPokemons } from './script.js'; window.getPokemons = getPokemons; getPokemons('list');
+</script>
 
 </html>

@@ -4,7 +4,7 @@ export const fetchPokemon = async(name) => {
     showInfo(json);
 }
 
-export const displayTypes= async(types) => {
+export const displayTypes = (types) => {
     const typeNames = [];
     for (let i = 0; i < types.length; i++) {
         const typeName = types[i].type.name;
@@ -13,7 +13,7 @@ export const displayTypes= async(types) => {
     return typeNames.join('/');
 }
 
-export const displayAbilities = async(abilities) => {
+export const displayAbilities = (abilities) => {
     const abilityList = [];
     for (let x = 0; x < abilities.length; x++) {
         const abilityName = abilities[x].ability.name;
@@ -23,7 +23,7 @@ export const displayAbilities = async(abilities) => {
 }
 
 export const showInfo = async(event) => {
-  console.log(`${event.name}`)
+    console.log(`${event.name}`)
     const html = `<div class="col-sm cardCol">
               <div class="card" style="width: 18rem;">
               <div id="carouselExampleCaptions" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -98,6 +98,17 @@ export const fetchPokemons = async() => {
 export const getPokemons = async(el) => {
     const pokemons = await fetchPokemons();
     currentNumber = currentNumber + 20;
-    const html = pokemons.map((e) => `<button onclick="${fetchPokemon(e.name)})">${e.name}</button>`).join('');
-    document.getElementById(el).innerHTML += html;
+    pokemons.forEach((e) => {
+        const button = document.createElement('button');
+        button.addEventListener('click', () => fetchPokemon(e.name));
+        button.className = 'btn btn-primary';
+        button.innerHTML = e.name;
+        const line = document.createElement('div');
+        line.append(button);
+        document.getElementById(el).append(line);
+    });
+
+    // pager
+    document.getElementById('pager').innerHTML = `Page ${(currentNumber / 20)}`;
+
 }
