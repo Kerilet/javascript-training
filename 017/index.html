@@ -15,13 +15,13 @@
             <nav aria-label="Page navigation example" id="boxPagination">
                 <ul class="pagination">
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous" id="prevButton">
+                        <a class="page-link" href="#" aria-label="Previous" id="prevButton" onclick="previousPage('list')">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <li class="page-item" id="pager"></li>
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next" id="nextButton">
+                        <a class="page-link" href="#" aria-label="Next" id="nextButton" onclick="nextPage('list')">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -38,6 +38,8 @@
 </body>
 <script type="module">
     import { getPokemons } from './script.js'; window.getPokemons = getPokemons; getPokemons('list');
+    import { nextPage } from './script.js'; window.nextPage = nextPage;
+    import { previousPage } from './script.js'; window.previousPage = previousPage;
 </script>
 
 </html>

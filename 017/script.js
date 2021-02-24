@@ -112,3 +112,43 @@ export const getPokemons = async(el) => {
     document.getElementById('pager').innerHTML = `Page ${(currentNumber / 20)}`;
 
 }
+
+export const nextPage = async(el) => {
+  document.getElementById('list').innerHTML = '';
+  const pokemons = await fetchPokemons();
+  currentNumber = currentNumber + 20;
+  pokemons.forEach((e) => {
+      const button = document.createElement('button');
+      button.addEventListener('click', () => fetchPokemon(e.name));
+      button.className = 'btn btn-primary';
+      button.innerHTML = e.name;
+      const line = document.createElement('div');
+      line.append(button);
+      document.getElementById(el).append(line);
+  });
+
+  // pager
+  document.getElementById('pager').innerHTML = `Page ${(currentNumber / 20)}`;
+
+}
+
+export const previousPage = async(el) => {
+  document.getElementById('list').innerHTML = '';
+  currentNumber = currentNumber - 20;
+  const pokemons = await fetchPokemons();
+  pokemons.forEach((e) => {
+      const button = document.createElement('button');
+      button.addEventListener('click', () => fetchPokemon(e.name));
+      button.className = 'btn btn-primary';
+      button.innerHTML = e.name;
+      const line = document.createElement('div');
+      line.append(button);
+      document.getElementById(el).append(line);
+  });
+
+  if (currentNumber === 0) {
+  document.getElementById('pager').innerHTML = `Page 1`;
+  }
+  document.getElementById('pager').innerHTML = `Page ${(currentNumber / 20)}`;
+
+}
